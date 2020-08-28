@@ -1,0 +1,21 @@
+.App__main {
+  background-color: #282c34;
+  height: 100vh;
+  // margin-top: 50px;
+  color: white;
+
+  .App__main-container{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .App__error-alert{
+    position: absolute;
+  }
+
+}
