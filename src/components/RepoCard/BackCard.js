@@ -28,7 +28,7 @@ function BackCard({packages}) {
                             packages[0] === undefined
                             ? (
                                 <div className="pkg-loading-container">
-                                    <div>Retrieving Your Packages</div>
+                                    <div>Retrieving Associated Packages</div>
                                     <div> <ReactLoading type="bars" color="#c2c2c2" height={'20%'} width={'20%'} /> </div>
                                 </div>
                               )
