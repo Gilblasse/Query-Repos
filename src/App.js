@@ -33,6 +33,8 @@ function App() {
         - this should eliminate prop drilling
 
     3. Add proper header token for GraphQL Query
+
+    4. Create Constants folder
   */
 
   
