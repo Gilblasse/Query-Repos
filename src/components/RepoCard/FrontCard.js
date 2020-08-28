@@ -13,7 +13,7 @@ function FrontCard({ownerAvatar, repoName, userName, language, followers}) {
       {
         ownerAvatar 
         ? (
-          <a href={`https://github.com/${userName}/${repoName}`}>
+          <a href={`https://github.com/${userName}/${repoName}`} target="_blank">
             <img className="thumbnail" width="300px" src={ownerAvatar} alt="owner avatar"/>
           </a>
         )
@@ -23,7 +23,7 @@ function FrontCard({ownerAvatar, repoName, userName, language, followers}) {
       {
         userName 
         ? (
-          <a href={`https://github.com/${userName}/${repoName}`}>
+          <a href={`https://github.com/${userName}/${repoName}`} target="_blank">
             <h3 className="name icon">{userName}</h3>
           </a>
         )
@@ -35,7 +35,7 @@ function FrontCard({ownerAvatar, repoName, userName, language, followers}) {
         userName && repoName
         ? (
             <p className="icon userLogin">
-              <a href={`https://github.com/${userName}/${repoName}`}>{repoName}</a>
+              <a href={`https://github.com/${userName}/${repoName}`} target="_blank">{repoName}</a>
             </p>
           )
         : <Skeleton className="name icon" variant="rect" width={200}/> 
