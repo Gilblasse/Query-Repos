@@ -1,0 +1,22 @@
+.Navbar {
+    padding: 5px 15px;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: 0;
+    right: 0;
+
+    .Navbar__logo{
+        color: black
+    }
+
+    .Navbar__repo-input {
+        margin: 0 10px
+    }
+
+    .Navbar__submit-btn{
+        margin-top: 5px
+    }
+}
