@@ -1,3 +1,7 @@
+$information-phone: "only screen and (max-width : 320px)";
+$breakpoint-tablet: 768px;
+
+
 .Navbar {
     padding: 5px 15px;
     background-color: white;
@@ -18,5 +22,28 @@
 
     .Navbar__submit-btn{
         margin-top: 5px
+    }
+
+
+    
+}
+
+
+@media(max-width: $breakpoint-tablet){
+    .Navbar{
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 2em;
+
+        form{
+            // background-color: blue;
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+
+            .Navbar__repo-input{
+                margin: 15px 0
+            }
+        }
     }
 }
