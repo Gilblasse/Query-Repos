@@ -5,6 +5,7 @@ import RepoCard from './components/RepoCard/RepoCard';
 import {GIT_GRAPHQL_API, CHECK_VULNERABLITIES} from './graphQL/queries'
 import axios from 'axios'
 import { Alert } from '@material-ui/lab';
+import {userDataAPI, repoAPI, followersAPI, repoPackagesAPI} from './constants/APIs'
 
 
 function App() {
@@ -33,17 +34,15 @@ function App() {
         - this should eliminate prop drilling
 
     3. Add proper header token for GraphQL Query
-
-    4. Create Constants folder
   */
 
   
   const getRepositoryData = async ({owner, repo})=>{
     // checkPacakgesVulnerablities(owner, repo)
     try {
-      const userData = await axios.get(`https://api.github.com/users/${owner}`)
-      const repoData = await axios.get(`https://api.github.com/repos/${owner}/${repo}`)
-      const followersData = await axios.get(`https://api.github.com/users/${owner}/followers`)
+      const userData = await axios.get( userDataAPI(owner) )
+      const repoData = await axios.get( repoAPI(owner, repo) )
+      const followersData = await axios.get( followersAPI(owner) )
       setRepoPackages([])
       
       const {data: { language, watchers } } = repoData
@@ -75,7 +74,7 @@ function App() {
       body: JSON.stringify({owner,repo,language})
     }
     
-    const packageRes = await fetch('http://localhost:4000/api/v1/repo-packages-info', config)
+    const packageRes = await fetch( repoPackagesAPI , config)
     const packageData = await packageRes.json()
     const {data: packages} = packageData
 
@@ -86,7 +85,6 @@ function App() {
   const checkPacakgesVulnerablities = async (owner, repo) => {
     const securityQuery = {query: CHECK_VULNERABLITIES, variables: {owner, repo}}
     const securityResults = await axios.post(GIT_GRAPHQL_API, securityQuery )
-    debugger
   }
   
 
